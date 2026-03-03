@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+        E-COMMERCE WEBSITE BY EDYODA | CREATED BY Raman Aggarwal & Sarthak
+    </title>
+    <!-- favicon -->
+    <link
+        rel="icon"
+        href="https://yt3.ggpht.com/a/A6F-178kmIYXI0MrF3-oYCYCAHHLAi62Yn_8NZEz-s900-c-k-c0xffffffff-no-rj-mo"
+        type="image/gif"
+        sizes="16x16"
+    />
+
+    <!-- header links -->
+    <script src="https://kit.fontawesome.com/4a3b1f7a32.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- slider links -->
+    <script
+        src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo9HpqcZGtebYMAG5f1wHFCJo="
+        crossorigin="anonymous">
+    </script>
+
+    <script src="js/jquery-3.4.1.js"></script>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+let loginEmailInput = document.getElementById("loginEmail");
+let loginPasswordInput = document.getElementById("loginPassword");
+let loginBtn = document.getElementById("loginBtn");
+let signupAnchor = document.getElementById("signupAnchor");
+
+let users = [];
+
+if (localStorage.getItem("users") != null) {
+    users = JSON.parse(localStorage.getItem("users"));
+}
+
+function signIn() {
+    let loginEmail = loginEmailInput.value;
+    let loginPassword = loginPasswordInput.value;
+
+    if (loginEmailInput.value === "" || loginPasswordInput.value === "") {
+        swal({
+            text: "Please fill in all fields",
+        });
+        return;
+    }
+
+    if (isCorrectEmailAndPassword(loginEmail, loginPassword)) {
+        window.location.href = "home.html";
+    } else {
+        swal({
+            text: "Incorrect email or password",
+        });
+    }
+}
+
+function isCorrectEmailAndPassword(email, password) {
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].email === email && users[i].password === password) {
+            localStorage.setItem("userName", users[i].name);
+            return true;
+        }
+    }
+    return false;
+}
+
+console.clear();
+
+if (document.cookie.indexOf("counter=") >= 0) {
+
+    let counter = document.cookie.split("; ")[1].split("=")[1];
+    document.getElementById("badge").innerHTML = counter;
+
+}
+
+let cartContainer = document.getElementById("cartContainer");
+
+let boxContainerDiv = document.createElement("div");
+boxContainerDiv.id = "boxContainer";
+
+cartContainer.appendChild(boxContainerDiv);
+
+// DYNAMIC CODE TO SHOW THE SELECTED ITEMS IN YOUR CART
+function dynamicCartSection(ob, itemCounter) {
+
+    let boxDiv = document.createElement("div");
+    boxDiv.id = "box";
+    boxContainerDiv.appendChild(boxDiv);
+
+    let boxImg = document.createElement("img");
+    boxImg.src = ob.preview;
+    boxDiv.appendChild(boxImg);
+
+    let boxh3 = document.createElement("h3");
+    let h3Text = document.createTextNode(ob.name + " × " + itemCounter);
+    boxh3.appendChild(h3Text);
+    boxDiv.appendChild(boxh3);
+
+    let boxh4 = document.createElement("h4");
+    let h4Text = document.createTextNode("Amount: Rs " + ob.price * itemCounter);
+    boxh4.appendChild(h4Text);
+    boxDiv.appendChild(boxh4);
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- link rel="stylesheet" href="style.css" -->
+    <title>
+        E COMMERCE WEBSITE BY EDYODA | CREATED BY Raman Aggarwal & Sarthak
+    </title>
+
+    <!-- favicon -->
+    <link
+        rel="icon"
+        href="https://yt3.ggpht.com/a-/AOh14GhmYyNkxNafor3-OcycCAEHa_16ZyN_8NZg=s900-c-k-c0x00ffffff-no-rj-mo"
+        type="image/gif"
+        sizes="16x16"
+    />
+
+    <!-- header links -->
+    <script src="https://kit.fontawesome.com/4a3b1f5a2d.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- slider links -->
+    <script
+        src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"
+    ></script>
+
+    <script src="js/jquery-3.4.1.js"></script>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+    />
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>E-COMMERCE WEBSITE BY APNI DUKAN</title>
+    <link rel="stylesheet" href="css/cart.css" />
+
+    <!-- favicon -->
+    <link
+        rel="icon"
+        href="https://yt3.ggpht.com/a-/AOh14GhmYyNkxNafor3-OcycCAEHa_16ZyN_8NZg=s900-c-k-c0x00ffffff-no-rj-mo"
+        type="image/gif"
+        sizes="16x16"
+    />
+
+    <!-- header links -->
+    <script src="https://kit.fontawesome.com/4a3b1f5a2d.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+        rel="stylesheet"
+    />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div id="1"></div>
+
+    <script>
+        load("header.html");
+        function load(url) {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById("1").innerHTML = req.responseText;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <title>Sign up</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    <main class="py-5">
+        <section class="py-5">
+            <div class="container">
+                <div
+                    id="signupBox"
+                    class="boxContainer text-center p-3 p-md-4 rounded-2"
+                >
+                    <h1 class="mt-5">Sign Up</h1>
+                    <p class="text-primary mb-4">Quick and easy!</p>
+
+                    <div class="inputForm">
+                        <input
+                            type="text"
+                            id="signupName"
+                            class="form-control"
+                        />
